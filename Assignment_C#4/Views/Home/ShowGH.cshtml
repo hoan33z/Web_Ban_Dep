@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Assignment_C_4.Models.SanPham>
+
+@{
+    ViewData["Title"] = "ShowGH";
+}
+<h1>Giỏ Hàng</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+Tên Sản Phẩm            </th>
+            <th>
+Màu            </th>
+            <th>
+Kích Cỡ            </th>
+            <th>
+Giá Bán            </th>
+            <th>Số Lượng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichCo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                 @ViewData["sl"]
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteSession", new { id=item.ID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

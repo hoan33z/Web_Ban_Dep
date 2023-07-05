@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Assignment_C_4.Models.SanPham>
+
+@{
+    ViewData["Title"] = "ShowGHCT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Giỏ Hàng Chi Tiết</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+Tên Sản Phẩm            </th>
+            <th>
+Màu            </th>
+            <th>
+Kích Cỡ            </th>
+            <th>
+Giá Bán            </th>
+            <th>Số Lượng</th>
+            <th>Hình Ảnh</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichCo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @item.SoLongTon
+            </td>            
+            <td>
+                  <img src="/images/@item.HinhAnh" height="100">
+            </td>            
+            <td>
+                <a href="@Url.Action("DeleteGHCT","Home",new {id = item.ID})"> <button type="submit" class="btn btn-primary">Xóa</button></a>
+                @Html.ActionLink("Thanh Toan", "ThanhToan")
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

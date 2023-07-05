@@ -1,0 +1,22 @@
+﻿@model Assignment_C_4.Models.GioHangChiTiet
+
+@{
+    ViewData["Title"] = "Detail";
+    SanPham sp = ViewData["detail"] as SanPham;
+
+}
+
+<div class="sp-detail">
+    <div class="sp-image"> 
+        <img src="/images/@sp.HinhAnh" />
+    </div>
+    <div class="sp-detail-content"> 
+        <form asp-action="CreateGHCT">
+        <p>Tên Sản Phẩm : @sp.TenSP</p>
+        <p>Giá : @sp.GiaBan</p>
+        <p>Số Lượng: <input type="number" value="1" asp-for="SoLuong"/></p>
+        <input asp-for="IDSP" style="visibility:hidden" value="@sp.ID" readonly></p>
+        <input type="submit" value="Mua Ngay" class="btn btn-primary" />
+        </form>
+    </div>
+</div>

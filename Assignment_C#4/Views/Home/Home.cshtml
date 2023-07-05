@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Assignment_C_4.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div style="text-align:center;"><img src="https://lambanner.com/wp-content/uploads/2022/10/MNT-DESIGN-BANNER-GIAY-11.jpg"  alt="..."></div>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem; float:left; margin:5px">
+  <a href="/Home/Detail/@item.ID"><img src="/images/@item.HinhAnh" class="card-img-top" alt="..."></a>
+  <div class="card-body">
+    <h5 class="card-title">@item.TenSP</h5>
+    <p class="card-text">@item.GiaBan</p>
+  </div>
+</div>
+}

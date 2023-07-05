@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Assignment_C_4.Models.SanPham>
+
+@{
+    ViewData["Title"] = "SanPham";
+}
+
+<h1>Sản Phẩm</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem; float:left; margin:5px">
+  <img src="/images/@item.HinhAnh" class="card-img-top" alt="...">
+  <div class="card-body" style="text-align:center">
+    <h5 class="card-title">@item.TenSP</h5>
+    <p class="card-text">@item.GiaBan</p>
+    </div>
+    <div style="margin:8px">
+      <a  href="@Url.Action("Detail","Home",new {id = item.ID})"> <button type="submit" class="btn btn-primary">Thêm Vào Giỏ Hàng</button></a>
+  </div>
+</div>
+}
+

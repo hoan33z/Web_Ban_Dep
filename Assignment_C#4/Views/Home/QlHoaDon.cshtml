@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Assignment_C_4.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "QlHoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Quản Lý Hóa Đơn</h1>
+
+<table class="table">
+    <thead>
+        <tr>       
+            <th>
+                Ngày Tạo
+            </th>
+            <th>
+                Ngày Thanh Toán
+            </th>
+            <th>
+                Tổng Tiền
+            </th>
+            <th>
+                Tên Khách Hàng
+            </th>
+            <th>
+                Số Điện thoại
+            </th>
+            <th>
+                Trạng Thái
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            
+                @if (item.TrangThai==0)
+                    {
+                    <td>Đã thanh toán</td>
+                }
+                else if (item.TrangThai==1)
+                {
+                    <td>Chưa thanh toán</td>
+                }
+                else if (item.TrangThai==2)
+                {
+                    <td>Đang Giao</td>
+                }
+                else if (item.TrangThai==3)
+                {
+                    <td>Đã Giao</td>
+                }
+                else
+                {
+                    <td>Hủy</td>
+                }
+            <td>
+                @Html.ActionLink("Edit", "EditHD", new { id=item.ID }) |
+                @Html.ActionLink("Details", "DetailHD", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "DeletelHD", new { id=item.ID }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

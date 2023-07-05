@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Assignment_C_4.ViewModel.GHCT>
+
+@{
+    ViewData["Title"] = "ShowGHCT1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Giỏ Hàng</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+Tên Sản Phẩm            </th>
+            <th>
+Màu            </th>
+            <th>
+Kích Cỡ            </th>
+            <th>
+Giá Bán            </th>
+            <th>
+Số Lượng            </th>
+            <th>
+Hình Ảnh            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichCo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLong)
+            </td>
+            <td>
+                <img src="/images/@item.HinhAnh" height="100">
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+@Html.ActionLink("Thanh Toan", "ThanhToan")            </td>
+        </tr>
+}
+    </tbody>
+</table>
